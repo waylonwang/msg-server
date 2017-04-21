@@ -4,6 +4,7 @@ MAINTAINER Waylon Wang <waylon.act@gmail.com>
 # 安装vim
 RUN apt-get update \
     && apt-get install -y vim \
+    && apt-get install -y wget \
     && rm -rf /var/lib/apt/lists/*
 
 # 更改CoolQ的app配置
