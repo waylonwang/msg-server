@@ -12,7 +12,7 @@ COPY CQP.cfg CQP.cfg
 
 # 下载coolq-http-api插件
 WORKDIR /home/user/coolq/app
-ADD https://github.com/richardchien/coolq-http-api/releases/download/v1.1.2/io.github.richardchien.coolqhttpapi.cpk
+ADD https://github.com/richardchien/coolq-http-api/releases/download/v1.1.2/io.github.richardchien.coolqhttpapi.cpk io.github.richardchien.coolqhttpapi.cpk
 RUN mkdir -p io.github.richardchien.coolqhttpapi
 
 # 更改coolq-http-api插件的配置
