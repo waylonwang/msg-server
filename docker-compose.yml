@@ -1,0 +1,14 @@
+version: '2'
+services:
+  coolq-http:
+    image: cloudvalley/coolq-http
+    container_name: coolq-http
+    network_mode: 'bridge'
+    expose:
+      - '9000'
+    volumes:
+      - /tmp:/tmp
+    environment:
+      - VNC_PASSWD=123456
+      - COOLQ_ACCOUNT=3010897940
+    restart: always
