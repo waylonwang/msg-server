@@ -38,7 +38,7 @@ docker-compose up -d
 
 运行以上docker-compose命令同时会创建名为coolq-server的容器，除了docker-compose命令外，你也可以通过docker run命令创建容器来运行本服务器：
 ```
-docker run --name coolq-server -p 9000:9000 ./app:/home/user/coolq/app -e "VNC_PASSWD=123456" -e "COOLQ_ACCOUNT=替换为QQ号" -d cloudvalley/coolq-http
+docker run --name coolq-server -p 9000:9000 ./app:/home/user/coolq/app -e "VNC_PASSWD=123456" -e "COOLQ_ACCOUNT=替换为QQ号" -d cloudvalley/coolq-server
 ```
 ### 配置
 【CloudValley QQBot】项目默认采用[waylonwang/IM-bot](https://github.com/waylonwang/IM-bot)作为指令处理机器人，
