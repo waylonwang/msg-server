@@ -8,7 +8,7 @@
 ### 项目组成
 【CloudValley QQBot】项目计划实现一个自动处理消息指令的QQ机器人来处理一些私有项目上的需求，本服务器是【CloudValley QQBot】项目的关键组成部分，基于[CoolQ/docker-wine-coolq](https://github.com/CoolQ/docker-wine-coolq)(CoolQ)镜像和[richardchien/coolq-http-api](https://github.com/richardchien/coolq-http-api)(HTTP API)插件整合的酷Q服务器，用于VPS挂机实现QQ收发消息服务。
 
-![](/doc/CloudValley QQBot-2.png)
+![CloudValley QQBot Framework](/doc/CloudValley QQBot-2.png)
 
 【CloudValley QQBot】项目的另一关键组成部分是基于[CCZU-DEV/xiaokai-bot](https://github.com/CCZU-DEV/xiaokai-bot)改造的[waylonwang/IM-bot](https://github.com/waylonwang/IM-bot)指令处理机器人，用于本服务器收发消息的自动处理。
 
