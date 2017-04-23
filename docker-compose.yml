@@ -1,6 +1,6 @@
 version: '2'
 services:
-  coolq-http:
+  coolq-server:
     image: cloudvalley/coolq-server
     container_name: coolq-server
     network_mode: 'bridge'
