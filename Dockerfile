@@ -10,7 +10,7 @@ RUN apt-get update \
 
 # 更改CoolQ的app配置
 WORKDIR /home/user/coolq/conf
-COPY CQP.cfg CQP.cfg
+COPY ./conf/CQP.cfg CQP.cfg
 
 # 下载coolq-http-api插件
 WORKDIR /home/user/coolq/app
@@ -19,7 +19,7 @@ RUN mkdir -p io.github.richardchien.coolqhttpapi
 
 # 更改coolq-http-api插件的配置
 WORKDIR /home/user/coolq/app/io.github.richardchien.coolqhttpapi
-COPY config.cfg config.cfg
+COPY ./app/io.github.richardchien.coolqhttpapi/config.cfg config.cfg
 
 WORKDIR /
 EXPOSE 9000
