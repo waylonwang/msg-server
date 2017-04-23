@@ -9,8 +9,8 @@ services:
     ports:
       - '9000:9000'
     volumes:
-      - /tmp:/tmp
+      - ./app:/home/user/coolq/app
     environment:
       - VNC_PASSWD=123456
-      - COOLQ_ACCOUNT=3010897940
+      - COOLQ_ACCOUNT=替换为QQ号
     restart: always

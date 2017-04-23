@@ -22,3 +22,5 @@ WORKDIR /home/user/coolq/app/io.github.richardchien.coolqhttpapi
 COPY config.cfg config.cfg
 
 WORKDIR /
+EXPOSE 9000
+VOLUME /home/user/coolq/app
