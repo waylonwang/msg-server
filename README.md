@@ -38,7 +38,6 @@ docker-compose up -d
 运行以上docker-compose命令时回同时创建名为coolq-http的容器，除了docker-compose命令外，你也可以通过docker run命令创建容器来运行本服务器：
 ```
 docker run --name coolq-http -p 9000:9000 -d cloudvalley/coolq-http
-
 ```
 ### 配置
 CloudValley QQBot项目默认采用[waylonwang/xiaokai-bot](https://github.com/waylonwang/xiaokai-bot)作为指令处理机器人，
@@ -46,7 +45,6 @@ CloudValley QQBot项目目前用于私有项目，为了方便部署，镜像中
 coolq-http容器运行后，通过docker exec命令进入容器内用vim修改"HTTP API"插件的上报地址：
 ```
 docker exec -ti coolq-http /bin/bash
-
 ```
 
 用vim编辑配置文件：
