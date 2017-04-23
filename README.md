@@ -40,8 +40,8 @@ docker run --name coolq-http -p 9000:9000 ./app:/home/user/coolq/app -e "VNC_PAS
 ```
 ### 配置
 CloudValley QQBot项目默认采用[waylonwang/IM-bot](https://github.com/waylonwang/IM-bot)作为指令处理机器人，
-CloudValley QQBot项目目前用于私有项目，为了方便部署，镜像中直接写死了测试用的QQ号，因此"HTTP API"插件的post_url配置项指向了`http://127.0.0.1:8888/coolq_http_api/替换为QQ号/`，你可以随时修改该配置为自己的指令处理机器人。
-coolq-http容器运行后，会将容器中CoolQ插件的目录挂载到本地的./app目录下，其中的io.github.richardchien.coolqhttpapi/config.config即为"HTTP API"插件的配置文件，修改其中的post_url即可更改上报地址，详细的配置内容请参见[richardchien/coolq-http-api](https://github.com/richardchien/coolq-http-api)和[CCZU-DEV/xiaokai-bot](https://github.com/CCZU-DEV/xiaokai-bot)原作者的描述。
+CloudValley QQBot项目目前用于私有项目，为了方便部署，镜像中直接写死了测试用的QQ号，因此"HTTP API"插件的post_url配置项指向了`http://127.0.0.1:8888/coolq_http_api/REPLACE_QQ_ACCOUNT/`，如果启动容器时配置了COOLQ_ACCOUNT环境变量，post_url配置项中的REPLACE_QQ_ACCOUNT会被替换成COOLQ_ACCOUNT的变量值，你可以随时修改该配置为自己的指令处理机器人。
+coolq-http容器运行后，会将容器中CoolQ插件的目录挂载到本地的./app目录下，其中的io.github.richardchien.coolqhttpapi/config.config即为"HTTP API"插件的配置文件，修改其中的post_url即可更改上报地址，如修改时CoolQ已经登录运行，则修改完后需要手工重新禁用启用一遍"HTTP API"插件来加载配置项，或者重启CoolQ来重新加载插件，详细的配置内容请参见[richardchien/coolq-http-api](https://github.com/richardchien/coolq-http-api)和[CCZU-DEV/xiaokai-bot](https://github.com/CCZU-DEV/xiaokai-bot)原作者的描述。
 
 CoolQ所使用的环境变量可在docker-compose.yml文件中直接修改，信息的配置内容请参见[CoolQ/docker-wine-coolq](https://github.com/CoolQ/docker-wine-coolq)原作者的描述。
 

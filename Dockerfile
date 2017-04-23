@@ -8,6 +8,10 @@ RUN apt-get update \
     && apt-get install -y iputils-ping \
     && rm -rf /var/lib/apt/lists/*
 
+# 替换vncmain.sh
+WORKDIR /app
+COPY ./vncmain.sh vncmain.sh
+
 # 更改CoolQ的app配置
 WORKDIR /home/user/coolq/conf
 COPY ./conf/CQP.cfg CQP.cfg
