@@ -1,8 +1,8 @@
 version: '2'
 services:
   coolq-http:
-    image: cloudvalley/coolq-http
-    container_name: coolq-http
+    image: cloudvalley/coolq-server
+    container_name: coolq-server
     network_mode: 'bridge'
     expose:
       - '9000'
