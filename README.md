@@ -10,7 +10,7 @@
 
 ![CloudValley QQBot Framework](CloudValley-QQBot.png)
 
-【CloudValley QQBot】项目的另一关键组成部分是基于[CCZU-DEV/xiaokai-bot](https://github.com/CCZU-DEV/xiaokai-bot)改造的[waylonwang/IM-bot](https://github.com/waylonwang/IM-bot)指令处理机器人，用于本服务器收发消息的自动处理。
+【CloudValley QQBot】项目的另一关键组成部分是基于[CCZU-DEV/xiaokai-bot](https://github.com/CCZU-DEV/xiaokai-bot)改造的[waylonwang/im-bot](https://github.com/waylonwang/im-bot)(「IM Bot」)指令处理机器人，用于本服务器收发消息的自动处理。
 
 ### 项目选型
 【CloudValley QQBot】项目尝试了GitHub上基于SmartQQ(Web QQ) API的众多开源项目，包括采用nodejs、perl、python等语言实现的QQBot，这些QQBot除了少量特性（如@用户）无法实现外，基本的IM需求和群管需求还是可以满足的，但是由于SmartQQ并非腾讯发展的重点，且貌似已不再维护，因此采用Web QQ协议的项目都先天存在风险，尤其是时不时一些API被关停或调整影响了机器人的稳定性，因此依赖于SmartQQ存在着极大的风险。
@@ -41,7 +41,7 @@ docker-compose up -d
 docker run --name coolq-server -p 9000:9000 ./app:/home/user/coolq/app -e "VNC_PASSWD=123456" -e "COOLQ_ACCOUNT=替换为QQ号" -d cloudvalley/coolq-server
 ```
 ### 配置
-【CloudValley QQBot】项目默认采用[waylonwang/IM-bot](https://github.com/waylonwang/IM-bot)作为指令处理机器人，
+【CloudValley QQBot】项目默认采用[waylonwang/im-bot](https://github.com/waylonwang/im-bot)作为指令处理机器人，
 【CloudValley QQBot】项目目前用于私有项目，为了方便部署，镜像中直接写死了测试用的QQ号，因此"HTTP API"插件的post_url配置项指向了`http://127.0.0.1:8888/coolq_http_api/REPLACE_QQ_ACCOUNT/`，如果启动容器时配置了COOLQ_ACCOUNT环境变量，post_url配置项中的REPLACE_QQ_ACCOUNT会被替换成COOLQ_ACCOUNT的变量值，你可以随时修改该配置为自己的指令处理机器人。
 coolq-server容器运行后，会将容器中CoolQ插件的目录挂载到本地的./app目录下，其中的io.github.richardchien.coolqhttpapi/config.config即为"HTTP API"插件的配置文件，修改其中的post_url即可更改上报地址，如修改时CoolQ已经登录运行，则修改完后需要手工重新禁用启用一遍"HTTP API"插件来加载配置项，或者重启CoolQ来重新加载插件，详细的配置内容请参见[richardchien/coolq-http-api](https://github.com/richardchien/coolq-http-api)和[CCZU-DEV/xiaokai-bot](https://github.com/CCZU-DEV/xiaokai-bot)原作者的描述。
 
@@ -49,4 +49,4 @@ CoolQ所使用的环境变量可在docker-compose.yml文件中直接修改，信
 
 CoolQ登录必须通过VNC来操作，配置好"HTTP API"插件后，访问 `http://你的IP:9000` 输入密码123456即可以打开一个 VNC 页面登录QQ，要注意的是，由于novnc本身的原因，VNC页面如果点击无响应的话刷新页面重新连接VNC即正常可操作了。
 ### 局限性
-【CloudValley QQBot】项目目前用于私有项目，从安全角度出发直接通过docker的“container”网络模式将「IM-bot」与「CoolQ Server」的IP合并到一起进行本地调用，因此「CoolQ Server」并未开放"HTTP API"插件的API端口到外部，如你需要通过外部直接调用"HTTP API"插件的API，请自行修改docker-compose.yml文件或docker run命令映射端口实现外部的访问。
+【CloudValley QQBot】项目目前用于私有项目，从安全角度出发直接通过docker的“container”网络模式将「IM Bot」与「CoolQ Server」的IP合并到一起进行本地调用，因此「CoolQ Server」并未开放"HTTP API"插件的API端口到外部，如你需要通过外部直接调用"HTTP API"插件的API，请自行修改docker-compose.yml文件或docker run命令映射端口实现外部的访问。
