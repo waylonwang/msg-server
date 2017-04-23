@@ -10,7 +10,7 @@ while true; do
     process=`ps aux | grep 'CQ.\.exe'`
     if [ "$process" == '' ]; then
         # 如果设置了COOLQ_ACCOUNT，将HTTP API的地址中的QQ号替换成COOLQ_ACCOUNT
-        if [$COOLQ_ACCOUNT != '']; then
+        if [ $COOLQ_ACCOUNT != '' ]; then
             sed -i "s/REPLACE_QQ_ACCOUNT/$COOLQ_ACCOUNT/g" ~/coolq/app/io.github.richardchien.coolqhttpapi/config.cfg
         fi
         # 不存在则重启
