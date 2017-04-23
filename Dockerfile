@@ -11,6 +11,7 @@ RUN apt-get update \
 # 替换vncmain.sh
 WORKDIR /app
 COPY ./vncmain.sh vncmain.sh
+RUM chmod 777 vncmain.sh
 
 # 更改CoolQ的app配置
 WORKDIR /home/user/coolq/conf
