@@ -1,8 +1,8 @@
 # CloudValley QQBot : CoolQ Server
 【云谷QQ机器人】之「酷Q服务器」
 
-[![License](https://img.shields.io/badge/License-MIT-orange.svg)](https://github.com/waylonwang/coolq-http-server/master/LICENSE)
-[![Docker Repository](https://img.shields.io/badge/docker-cloudvalley%2Fcoolq--http-green.svg)](https://hub.docker.com/r/cloudvalley/coolq-http/)
+[![License](https://img.shields.io/badge/License-MIT-orange.svg)](https://github.com/waylonwang/coolq-server/master/LICENSE)
+[![Docker Repository](https://img.shields.io/badge/docker-cloudvalley%2Fcoolq--http-green.svg)](https://hub.docker.com/r/cloudvalley/coolq-server/)
 
 ## CloudValley QQBot项目
 ### 项目组成
