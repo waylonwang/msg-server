@@ -30,8 +30,11 @@
 ```
 docker pull cloudvalley/msg-server
 ```
+### 运行前配置
+"HTTP API"插件的post_url配置项指向了`http://127.0.0.1:8888/coolq_http_api/REPLACE_QQ_ACCOUNT/`，如果启动容器时配置了COOLQ_ACCOUNT环境变量，post_url配置项中的REPLACE_QQ_ACCOUNT会被替换成COOLQ_ACCOUNT的变量值，【CloudValley QQBot】项目默认采用[waylonwang/cmd-server](https://github.com/waylonwang/cmd-server)作为指令处理服务器，你可以随时修改该配置为自己的指令处理服务器。
+
 ### 运行容器
-即便不通过以上命令拉取镜像，也可以通过docker-compose命令来直接执行docker-compose.yml文件，如本地没有这个镜像就会自动拉取：
+通过docker-compose命令来直接执行docker-compose.yml文件，如本地尚未拉取镜像则会自动拉取：
 ```
 docker-compose up -d
 ```
@@ -40,11 +43,12 @@ docker-compose up -d
 ```
 docker run --name msg-server -p 9000:9000 -v  ./app:/home/user/coolq/app -e "VNC_PASSWD=123456" -e "COOLQ_ACCOUNT=替换为QQ号" -d cloudvalley/msg-server
 ```
-### 配置
-"HTTP API"插件的post_url配置项指向了`http://127.0.0.1:8888/coolq_http_api/REPLACE_QQ_ACCOUNT/`，如果启动容器时配置了COOLQ_ACCOUNT环境变量，post_url配置项中的REPLACE_QQ_ACCOUNT会被替换成COOLQ_ACCOUNT的变量值，【CloudValley QQBot】项目默认采用[waylonwang/cmd-server](https://github.com/waylonwang/cmd-server)作为指令处理服务器，你可以随时修改该配置为自己的指令处理服务器。msg-server容器运行后，会将容器中CoolQ插件的目录挂载到本地的./app目录下，其中的io.github.richardchien.coolqhttpapi/config.config即为"HTTP API"插件的配置文件，修改其中的post_url即可更改上报地址，如修改时CoolQ已经登录运行，则修改完后需要手工重新禁用启用一遍"HTTP API"插件来加载配置项，或者重启CoolQ来重新加载插件，详细的配置内容请参见[richardchien/coolq-http-api](https://github.com/richardchien/coolq-http-api)和[CCZU-DEV/xiaokai-bot](https://github.com/CCZU-DEV/xiaokai-bot)原作者的描述。
+### 运行后配置
+msg-server容器运行后，会将容器中CoolQ插件的目录挂载到本地的./app目录下，其中的io.github.richardchien.coolqhttpapi/config.config即为"HTTP API"插件的配置文件，修改其中的post_url即可更改上报地址，如修改时CoolQ已经登录运行，则修改完后需要手工重新禁用启用一遍"HTTP API"插件来加载配置项，或者重启CoolQ来重新加载插件，详细的配置内容请参见[richardchien/coolq-http-api](https://github.com/richardchien/coolq-http-api)和[CCZU-DEV/xiaokai-bot](https://github.com/CCZU-DEV/xiaokai-bot)原作者的描述。
 
 CoolQ所使用的环境变量可在docker-compose.yml文件中直接修改，信息的配置内容请参见[CoolQ/docker-wine-coolq](https://github.com/CoolQ/docker-wine-coolq)原作者的描述。
 
 CoolQ登录必须通过VNC来操作，配置好"HTTP API"插件后，访问 `http://你的IP:9000` 输入密码123456即可以打开一个 VNC 页面登录QQ，要注意的是，由于novnc本身的原因，VNC页面如果点击无响应的话刷新页面重新连接VNC即正常可操作了。
+
 ### 局限性
 【CloudValley QQBot】项目目前用于私有项目，从安全角度出发直接通过docker的“container”网络模式将「Command Server」与「Message Server」的IP合并到一起进行本地调用，因此「Message Server」并未开放"HTTP API"插件的API端口到外部，如你需要通过外部直接调用"HTTP API"插件的API，请自行修改docker-compose.yml文件或docker run命令映射端口实现外部的访问。
