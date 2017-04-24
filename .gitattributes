@@ -1,0 +1,2 @@
+*.cfg linguist-language=python
+*.sh linguist-language=python
