@@ -1,8 +1,8 @@
 version: '2'
 services:
-  coolq-server:
-    image: cloudvalley/coolq-server
-    container_name: coolq-server
+  msg-server:
+    image: cloudvalley/msg-server
+    container_name: msg-server
     network_mode: 'bridge'
     expose:
       - '9000'
