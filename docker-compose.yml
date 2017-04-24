@@ -9,7 +9,7 @@ services:
     ports:
       - '9000:9000'
     volumes:
-      - ./app/msg-server:/home/user/coolq/app/io.github.richardchien.coolqhttpapi
+      # - ./app/msg-server:/home/user/coolq/app/io.github.richardchien.coolqhttpapi
       - /tmp:/tmp
     environment:
       - VNC_PASSWD=123456
