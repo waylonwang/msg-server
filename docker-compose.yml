@@ -9,7 +9,8 @@ services:
     ports:
       - '9000:9000'
     volumes:
-      - ./app:/home/user/coolq/app
+      - ./app/msg-server:/home/user/coolq/app/io.github.richardchien.coolqhttpapi
+      - /tmp:/tmp
     environment:
       - VNC_PASSWD=123456
       - COOLQ_ACCOUNT=替换为登录的QQ号
