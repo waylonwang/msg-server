@@ -48,7 +48,7 @@ docker-compose up -d
 
 运行以上docker-compose命令同时会创建名为msg-server的容器，除了docker-compose命令外，你也可以通过docker run命令创建容器来运行本服务器：
 ```
-docker run --name msg-server -p 9000:9000 -v  ./app:/home/user/coolq/app -e "VNC_PASSWD=123456" -e "COOLQ_ACCOUNT=替换为QQ号" -d cloudvalley/msg-server
+docker run --name msg-server -p 9000:9000 -e "VNC_PASSWD=123456" -e "COOLQ_ACCOUNT=替换为QQ号" -d cloudvalley/msg-server
 ```
 ### 运行后配置
 CoolQ登录必须通过VNC来操作，配置好"HTTP API"插件后，访问 `http://你的IP:9000` 输入密码123456即可以打开一个 VNC 页面登录QQ，要注意的是，由于novnc本身的原因，VNC页面如果点击无响应的话刷新页面重新连接VNC即正常可操作了。
