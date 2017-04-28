@@ -28,4 +28,4 @@ COPY ./app/io.github.richardchien.coolqhttpapi/config.cfg config.cfg
 
 WORKDIR /
 EXPOSE 9000
-VOLUME /home/user/coolq/app
+VOLUME /home/user/coolq/app/io.github.richardchien.coolqhttpapi
