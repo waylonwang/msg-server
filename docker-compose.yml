@@ -8,6 +8,8 @@ services:
       - '9000'
     ports:
       - '9000:9000'
+      - '5600:5600'
+      - '5700:5700'
       - '5800:5800'
     volumes:
       - ~/msg-server/app/io.github.richardchien.coolqhttpapi:/home/user/coolq/app/io.github.richardchien.coolqhttpapi
